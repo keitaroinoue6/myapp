@@ -1,0 +1,26 @@
+%h1.display-4.text-primary 詳細
+%p
+  ※「#{@card.title}」の読書データ
+%table.table
+  %tr
+    %th{:width => "200"} Id
+    %td= @card.id
+  %tr
+    %th タイトル
+    %td= @card.title
+  %tr
+    %th 著者
+    %td= @card.author
+  %tr
+    %th 価格
+    %td= @card.price
+  %tr
+    %th 出版社
+    %td= @card.publisher
+  %tr
+    %th コメント
+    %td= @card.memo
+%p
+  %a{:href => "/cards"}
+    \&lt;&lt;
+    ※トップページに戻る

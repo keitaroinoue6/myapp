@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title 読書カードアプリ
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:href => "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css", :rel => "stylesheet"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %body.container
+    = yield

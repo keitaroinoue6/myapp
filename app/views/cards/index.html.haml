@@ -1,0 +1,29 @@
+%h1.display-4.text-primary 読書一覧
+%p ※現在、登録されているデータです
+%table.table
+  %tr
+    %th ID
+    %th 題名
+    %th 著者
+    %th{:colspan => "2"}
+  - @cards.each do |obj|
+    %tr
+      %td{:width => "35px"}= obj.id
+      %td{:width => "50%"}
+        %a{:href => "/cards/#{obj.id}"}
+          = obj.title
+      %td= obj.author
+      %td{:width => "80px"}
+        %a{:href => "/cards/edit/#{obj.id}"}
+          編集
+      %td{:width => "80px"}
+        %a{:href => "javascript:delData(\n        <haml_loud> (obj.id.to_s + \",'\".to_s + \n        obj.title.to_s).html_safe </haml_loud>');"} 削除
+%p
+  %a.newdata{:href => "/cards/add"}
+    ※新しいデータを入力 &gt;&gt;
+:javascript
+  function delData(id,title){
+    if (confirm('「' + title + '」のデータを削除しますか？')){
+      document.location = "/cards/delete/" + id;
+    }
+  }

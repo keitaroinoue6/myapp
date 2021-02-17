@@ -1,0 +1,23 @@
+%h1 編集
+%p
+  ※「#{@card.title}」の内容を編集します。
+= form_for(@card, url:{controller:'cards', action:'edit', id:@card.id}) do |form|
+  .form-group
+    %label{:for => "title"} タイトル
+    = form.text_field :title,{class:"form-control"}
+  .form-group
+    %label{:for => "author"} 著者
+    = form.text_field :author,{class:"form-control"}
+  .form-group
+    %label{:for => "price"} 価格
+    = form.text_field :price,{class:"form-control"}
+  .form-group
+    %label{:for => "publisher"} 出版社
+    = form.text_field :publisher,{class:"form-control"}
+  .form-group
+    %label{:for => "memo"} コメント
+    = form.text_field :memo,{rows:5, class:"form-control"}
+  = form.submit "更新"
+%p.link
+  %a{:href => "/cards"}
+    \&lt;&lt; ※トップページに戻る
